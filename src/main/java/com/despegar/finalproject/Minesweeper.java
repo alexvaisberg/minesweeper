@@ -7,7 +7,7 @@ public interface Minesweeper {
 	
 	//Marcar o desmarcar celdas que supone que son minas.
 	public void flagAsMine(int row, int col);
-	public void clearMine(int row, int col);
+	public void clearFlag(int row, int col);
 	
 	//Metodos para saber el estado del juego (Gano/Perdio)
 	public boolean isGameOver();
