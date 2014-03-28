@@ -11,8 +11,8 @@ public class Main {
 		System.out.println("Indique la cantidad de columnas del tablero:");
 		int cols = sc.nextInt();
 		
-		Minesweeper game = new Grid(rows,cols);
-		game.displayInternal();
+		Minesweeper game = new MinesweeperImpl(rows,cols);
+
 		
 		System.out.println();
 		while(!game.isGameOver()){
@@ -36,7 +36,7 @@ public class Main {
 			}
 			
 			//Uncover=1; FlagAsMine=2; ClearFlag=3;
-			System.out.println("Indique la accion a realizar (U, F, C)");
+			System.out.println("Indique la accion a realizar (1=UNCOVER, 2=FLAG, 3=CLEAR FLAG)");
 			int action = sc.nextInt();
 			
 			//Validate action
@@ -60,15 +60,17 @@ public class Main {
 					game.clearFlag(row, col);
 					break;
 			}
-			game.displayInternal();
+			
 			game.display();
+			System.out.println();
 		}
 		
 		if (game.isWinningGame()){
 			System.out.println("¡Ganaste!");
 		}else{
+			System.out.println("¡Perdiste! ");
+			System.out.println();
 			game.display();
-			System.out.println("¡Perdiste!");
 		}
 	}
 }
